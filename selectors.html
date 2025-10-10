@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Center Form with Labels</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            background: #2A7B9B;
+            box-shadow: 13px 15px 55px 25px rgb(0, 255, 102);
+            background-image: linear-gradient(89.2deg, rgba(255, 255, 255, 1) -1.3%, rgba(253, 109, 38, 1) 281.6%);
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            /* horizontal center */
+            align-items: center;
+            /* vertical center */
+        }
+
+        .form {
+            display: flex;
+            padding: 30px;
+            flex-direction: column;
+            box-shadow: 13px 15px 55px 25px rgb(236, 177, 177);
+            gap: 10px;
+            background: transparent;
+            border-radius: 15px;
+            animation: box 5s linear infinite;
+           
+        }
+
+        input:hover {
+            border: none;
+            border: solid rgba(236, 151, 151, 0.925);
+            ;
+        }
+        [type="submit"]{
+            transition: all 0.3544s linear;
+        }
+
+        input:active{
+            border: solid rgb(236, 205, 177);
+            ;
+        }
+        [type="submit"]:active{
+            background: #f28c61;
+            
+        }
+{
+
+}
+        @keyframes box {
+            0% {
+                box-shadow: 13px 15px 55px 25px red;
+            }
+
+            10% {
+                box-shadow: 13px 15px 55px 25px rgb(255, 111, 0);
+
+            }
+
+            20% {
+                box-shadow: 13px 15px 55px 25px rgb(255, 208, 0);
+
+            }
+
+            30% {
+                box-shadow: 13px 15px 55px 25px rgb(255, 230, 0);
+
+            }
+
+            40% {
+                box-shadow: 13px 15px 55px 25px rgb(183, 255, 0);
+
+            }
+
+            50% {
+                box-shadow: 13px 15px 55px 25px rgb(106, 255, 0);
+
+            }
+
+            60% {
+                box-shadow: 13px 15px 55px 25px rgb(0, 255, 26);
+
+            }
+
+            70% {
+                box-shadow: 13px 15px 55px 25px rgb(0, 255, 102);
+
+            }
+
+            80% {
+                box-shadow: 13px 15px 55px 25px rgb(0, 255, 200);
+
+            }
+
+            90% {
+                box-shadow: 13px 15px 55px 25px rgb(0, 162, 255);
+
+            }
+
+            100% {
+                box-shadow: 13px 15px 55px 25px rgb(0, 102, 255);
+
+            }
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 5px;
+            width: 200px;
+            background: transparent;
+            border: solid gray 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="form">
+            <h1>Login Form</h1>
+            <label for="textInput">Username:</label>
+            <input type="text" id="textInput" placeholder="Enter text">
+
+            <label for="passInput">Password:</label>
+            <input type="password" id="passInput" placeholder="Enter password">
+            <input type="submit" name="" id="">
+        </form>
+    </div>
+
+</body>
+
+</html>

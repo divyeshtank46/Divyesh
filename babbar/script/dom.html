@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="fdiv" style="background-color: antiquewhite; padding: 2rem;">
+        first div
+        <p id="fpara" style="background-color: rgb(117, 93, 57); padding: 10px;">first para</p>
+        <div style="background-color: aquamarine; padding: 20px;">
+            sdiv
+            <p id="spara" style="background-color: yellowgreen; padding:10px">secpara</p>
+        </div>
+        <p id="text">Lorem ipsum dolor sit amet.</p>
+    </div>
+    <script>
+       let list = document.getElementById("text");
+       console.log(list.classList.add("divyesh"));
+        console.log(list.classList.toggle("divyesh"));
+        console.log(list.classList.toggle("divyesh"));
+        console.log(list.classList.contains("divyesh"));
+       console.log(list);
+
+    </script>
+</body>
+</html>

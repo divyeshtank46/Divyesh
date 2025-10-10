@@ -1,0 +1,49 @@
+@font-face {
+    font-family: montserratMedium;
+    src: url(../assets/plugins/fonts/Montserrat-Medium.woff2);
+}
+
+@font-face {
+    font-family: montserratRegular;
+    src: url(../assets/plugins/fonts/Montserrat-Regular.woff2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "montserratRegular", sans-serif !important;
+
+}
+
+.nav-items :hover {
+    color: rgb(82, 81, 83) !important;
+}
+
+.container * {
+    letter-spacing: 5px;
+}
+
+.nav-links a:hover {
+    color: #1abc9c !important;
+}
+
+.hero-section {
+    background-color: #1abc9c !important;
+}
+
+.text h3 {
+    color: #555555 !important;
+}
+
+section {
+    background-color: #474e5d;
+}
+
+footer {
+    background-color: #2f2f2f;
+    height: 180px;
+}

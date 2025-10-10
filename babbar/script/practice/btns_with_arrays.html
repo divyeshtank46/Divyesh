@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-group w-25 m-4">
+        <input type="text" class="form-control w-25 ">
+        <button class="btn btn-primary fs-1" id="createRow">+</button>
+    </div>
+
+    <div id="pushItems"></div>
+
+    <script>
+        let createRowRef = document.getElementById("createRow");
+        let pusRef = document.getElementById("pushItems");
+
+        function createRow() {
+            let div = document.createElement("div");
+            div.className = "input-group w-25 m-4";
+            let element = document.createElement("input");
+            element.type = "text";
+            element.className = "form-control w-25";
+
+            let btn = document.createElement("button");
+            btn.className = "btn btn-primary fs-1";
+            btn.textContent = "+";
+
+            let btn2 = document.createElement("button");
+            btn2.textContent = "-";
+            btn2.className = "btn btn-danger fs-1";
+            div.appendChild(element);
+            div.appendChild(btn);
+            div.appendChild(btn2);
+
+            btn.onclick = () => {
+                pusRef.appendChild(createRow());
+            };
+
+            btn2.onclick = () => {
+                div.remove();
+            };
+
+            return div; 
+        }
+
+        createRowRef.addEventListener("click", () => {
+            pusRef.appendChild(createRow());
+        });
+    </script>
+</body>
+
+</html>

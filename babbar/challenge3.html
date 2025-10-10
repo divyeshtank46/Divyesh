@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+<style>
+    body{
+        color: rgb(248, 88, 112);
+    }
+    .container
+    {
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        justify-content: flex-start;
+        width: 700px;
+        gap: 25px;
+        background-color: rgb(245, 218, 218);
+        border-radius: 14px;
+
+        padding: 20px;
+    }
+    i{
+        background-color: #edbf7e55;
+        padding: 30px;
+        border-radius: 50%;
+    }
+    .box1{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .box2{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .box2 div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    div i{
+        font-size: 40px;
+    }
+    .box3{
+        text-align: center;
+    }
+    .box4{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box1">
+            <h2>Share This Challenge</h2>
+            <i class="fa-solid fa-xmark" style="font-size: 25px;"></i>
+        </div>
+        <div class="box2">
+            <div class="chat">
+                <i class="fa-solid fa-comment"></i>
+                <h3>Chat</h3>
+            </div>
+            <div class="twitter"> <i class="fa-brands fa-twitter"></i>
+                <h3>Twitter</h3>
+            </div>
+            <div class="whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+            </div>
+            <div class="email">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Email</h3>
+            </div>
+            <div class="share">
+                <i class="fa-solid fa-square-share-nodes"></i>
+                <h3>More</h3>
+            </div>
+        </div>
+        <div class="box3">
+            <h2>Or Share with Link</h2>
+        </div>
+        <div class="box4">
+            <p style="font-size: 18px; color: gray;">https://www.example.comhttps://www.example.comhttps://www.example.com...</p>
+            <i class="fa-solid fa-copy"></i>
+        </div>
+    </div>
+</body>
+
+</html>

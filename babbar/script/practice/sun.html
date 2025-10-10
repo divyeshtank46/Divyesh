@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise & Sunset Animation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.sky {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to top, #0c204c, #5b92e5);
+    animation: day-cycle 20s infinite linear;
+}
+
+.sun {
+    width: 100px;
+    height: 100px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    transform: translateX(0);
+    animation: sun-path 20s infinite linear;
+}
+
+@keyframes day-cycle {
+    0% { background: linear-gradient(to top, #0c204c, #5b92e5); } /* Night */
+    25% { background: linear-gradient(to top, #6a89cc, #f8c291); } /* Morning */
+    50% { background: linear-gradient(to top, #4834d4, #f7d794); } /* Midday */
+    75% { background: linear-gradient(to top, #e55039, #f7d794); } /* Evening */
+    100% { background: linear-gradient(to top, #0c204c, #5b92e5); } /* Back to night */
+}
+
+@keyframes sun-path {
+    0% {
+        bottom: -50px;
+        left: 0;
+    }
+    25% {
+        bottom: 70%;
+        left: 30%;
+    }
+    50% {
+        bottom: 80%;
+        left: 50%;
+    }
+    75% {
+        bottom: 70%;
+        left: 70%;
+    }
+    100% {
+        bottom: -50px;
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="sun"></div>
+    </div>
+</body>
+</html>

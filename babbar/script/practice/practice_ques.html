@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Array Methods DOM</title>
+</head>
+
+<body>
+    <!-- <h3>Names:</h3>
+    <ul id="list"></ul>
+
+    <button onclick="addName()">Push (Add at End)</button>
+    <button onclick="removeName()">Pop (Remove Last)</button>
+    <button onclick="addFirst()">Unshift (Add at Start)</button>
+    <button onclick="removeFirst()">Shift (Remove First)</button>
+
+    <script>
+        let names = ["Divyesh", "Rahul", "Jinish"];
+
+        function render() {
+            document.getElementById("list").innerHTML = names.map(n => `<li>${n}</li>`).join("");
+        }
+        render();
+
+        function addName() {
+            names.push("NewName");
+            render();
+        }
+        function removeName() {
+            names.pop();
+            render();
+        }
+        function addFirst() {
+            names.unshift("👑Boss");
+            render();
+        }
+        function removeFirst() {
+            names.shift();
+            render();
+        }
+    </script> -->
+    <!-- <input type="text" id="city" placeholder="Enter city">
+    <button onclick="checkCity()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        let cities = ["Surat", "Navsari", "Valsad", "Bharuch"];
+
+        function checkCity() {
+            let c = document.getElementById("city").value;
+            if (cities.includes(c)) {
+                document.getElementById("result").innerText = c + " is in list ✅";
+            } else {
+                document.getElementById("result").innerText = c + " not found ❌";
+            }
+        }
+    </script> -->
+    <!-- <p id="fullArray"></p>
+    <p id="sliceResult"></p>
+    <script>
+        let nums = [1, 2, 3, 4, 5, 6, 7];
+        document.getElementById("fullArray").innerHTML=nums;
+        let part = nums.slice(2, 5); // [3,4,5]
+        document.getElementById("sliceResult").innerText = "Slice(2,5) → " + part;
+    </script> -->
+    <p id="ogArray"></p>
+    <p id="mapResult"></p>
+    <p id="filterResult"></p>
+    <p id="reduceResult"></p>
+
+    <script>
+        let nums = [10, 20, 30, 40];
+        let doubled = nums.map(n => n * 2);
+        let evens = nums.filter(n => n % 20 === 0);
+        let total = nums.reduce((sum1, n) => sum1 + n);
+        document.getElementById("ogArray").innerHTML =`OG Array:${nums}`;
+        document.getElementById("mapResult").innerText = "Map (x2): " + doubled;
+        document.getElementById("filterResult").innerText = "Filter (div by 20): " + evens;
+        document.getElementById("reduceResult").innerText = "Reduce (Sum): " + total;
+    </script>
+
+</body>
+
+</html>

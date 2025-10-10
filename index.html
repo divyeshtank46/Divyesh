@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="boootstrap.css" rel="stylesheet"></link>
+    <!-- <link href="boootstrap.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<script src="script/script.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".btn").click(function(){
+            $("p").hide(2000);
+
+        });
+        $(".hide").click(function(){
+            $("p").show(4500);
+        });
+
+    });
+</script>
+<style>
+.content{
+    height: 800px;
+    width: 100%;
+    color: #799679;
+    background-color: #a52323;
+}
+.fade{
+    background-color: green;
+     height: 800px;
+    width: 100%;
+}
+/* button{ */
+    /* padding: -4px;
+} */
+ .e{
+    padding: -10px;
+ }
+ 
+</style>
+</head>
+<body>
+    <p>hello</p>
+    <input type="button" value="submit" class="btn btn-danger">
+     <table  class="table table-stripted bg-dark text-white" cellpadding="-4px">
+        <tr>
+            <th colspan="7">time table</th>
+        </tr>
+        <tr>
+            <td rowspan="7">Hours</td>
+            <td>mon</td>
+            <td>tues</td>
+            <td>wed</td>
+            <td>thrus</td>
+            <td>fri</td>
+        </tr>
+        <tr>
+            <td>Sci</td>
+            <td>maths</td>
+            <td>maths</td>
+            <td>maths</td>
+            <td>maths</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Sci</td>
+            <td>maths</td>
+            <td>maths</td>
+            <td>maths</td>
+            <td>maths</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <center>lunch</center>
+            </td>
+        </tr>
+        <tr>
+            <td>sci</td>
+            <td>sci</td>
+            <td>sci</td>
+            <td>sci</td>
+            <td rowspan="2">project</td>
+        </tr>
+        <tr>
+            <td>sci</td>
+            <td>sci</td>
+            <td>sci</td>
+            <td>sci</td>
+            <td></td>
+        </tr>
+    </table>
+    <input type="button" value="hide"class ="btn">
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, consectetur?
+    </p>
+    <input type="button" value="hide" class ="hide">
+    <p calss="content">tap to fad out</p>
+   <p class="fade">hello  world</p>
+    <input type="button" value="go"class="e">
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>List of Data</h2>
+        <ul id="datashow">
+
+        </ul>
+    </div>
+    <script>
+        let List=['divyesh','rahul','kartik','vikas',];
+        let lst;
+        viewRecords=()=>{
+        List.map((val,index)=>{
+                lst+=`<li>${val}</li>`;
+        });
+        document.getElementById("datashow").innerHTML=`${lst}`;
+};
+viewRecords();
+
+    </script>
+</body>
+</html>

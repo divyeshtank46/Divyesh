@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Document</title>
+    <style>
+        .container {
+            height: 100vh;
+            background: #930ced;
+            background: linear-gradient(90deg, rgba(147, 12, 237, 1) 15%, rgba(98, 1, 17, 1) 73%, rgba(94, 0, 0, 1) 47%, rgba(252, 176, 69, 1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 3px 3px 15px black;
+            height: 600px;
+            width: 400px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 5px;
+        }
+
+        h2,
+        p {
+
+            margin-left: 10px;
+        }
+
+        .card2 {
+            height: 600px;
+            width: 400px;
+            background-color: #fff;
+            border-radius: 15px;
+            /* margin-left: 15px; */
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .img {
+            height: 20%;
+            width: 100%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .img2 {
+            border-radius: 10px;
+        }
+
+        .samycard {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            width: 90%;
+            border-radius: 15px;
+            background-color: rgb(15, 216, 216);
+        }
+
+        .pay {
+            width: 90%;
+            height: 60px;
+            border-radius: 15px;
+            background-color: rgb(13, 13, 66);
+            box-shadow: 3px 3px 10px  rgb(13, 13, 66), 3px 3px 10px  rgb(13, 13, 66);
+            color: white;
+            border: none;
+            font-weight: bold;
+            transition: 0.3s linear;
+            cursor: pointer;
+        }
+
+        .pay:hover {
+            transform: scale(1.1);
+        }
+
+        .cancel {
+            font-size: 20px;
+            border: none;
+            background-color: #fff;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+        .container2{
+            height: 400px;
+            width: 900px;
+            background-color: #330652;
+            color: white;
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            
+        }
+        .containermini {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: safe;
+            width: 50%;
+            gap: 25px;
+        } 
+        .box
+        {
+            display: flex;
+            justify-content: space-around;
+            gap:0px;
+        }
+        .t{
+            font-size: 25px;
+        }
+        .m{
+            gap: 0;
+            margin-top: 0;
+        }
+        .man{
+            width: 50%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="./images/scanner.jpg" height="350px" width="350px" alt="">
+            <h2>improve your forntend skills by building projects</h2>
+            <p>Scan QR code to visit frontend mentor and take your coding skills to next level</p>
+        </div>
+        <div class="card2">
+            <img src="./images/card2.jpg" class="img" alt="">
+            <h2>Order Summary</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur nostrum, molestias autem corporis
+                aspernatur doloremque ratione ipsam expedita accusantium.</p>
+            <div class="samycard">
+                <img src="./images/waves.avif" class="img2" height="60px" width="60px" alt="">
+                <p>Annual Plan ₹99.99/year</p>
+
+                <a href="#">Change</a>
+            </div>
+            <button class="pay" type="button">Proceed to Payment</button>
+            <button type="button" class="cancel">Cancel Order</button>
+        </div>
+       
+    </div>
+     <div class="container2">
+            <div class="containermini">
+                <h1 >Get insights that help your business grow</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique rem minima voluptatem tempore voluptate quam quos, vero neque totam, culpa qui a quasi modi necessitatibus distinctio exercitationem. Labore, eos a?</p>
+                <div class="box">
+                    <div class="text1">
+                        <p class="t">10K+</p>
+                        <p class="m">comments</p>
+                    </div> <div class="text1">
+                        <p class="t">214</p>
+                        <p class="m">Paid User</p>
+                    </div> <div class="text1">
+                        <p class="t">12m+</p>
+                        <p class="m">views</p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <img src="./images/card2.jpg" class="man" alt="">
+        </div>
+<!-- Classic family icons in available styles (Font Awesome Classic is the default) -->
+<i class="fa-solid fa-user"></i>
+<i class="fa-regular fa-user"></i>
+<i class="fa-light fa-user"></i>
+<i class="fa-thin fa-user"></i>
+
+<!-- You can also explicitly state the classic family like this -->
+<i class="fa-classic fa-regular fa-user"></i>
+
+<!-- Font Awesome Duotone family icon -->
+<i class="fa-duotone fa-solid fa-user"></i>
+<i class="fa-duotone fa-regular fa-user"></i>
+<i class="fa-duotone fa-light fa-user"></i>
+<i class="fa-duotone fa-thin fa-user"></i>
+
+<!-- Font Awesome Sharp family icons in available styles -->
+<i class="fa-sharp fa-solid fa-user"></i>
+<i class="fa-sharp fa-regular fa-user"></i>
+<i class="fa-sharp fa-light fa-user"></i>
+<i class="fa-sharp fa-thin fa-user"></i>
+
+<!-- Font Awesome Sharp Duotone family icon -->
+<i class="fa-sharp-duotone fa-solid fa-user"></i>
+<i class="fa-sharp-duotone fa-regular fa-user"></i>
+<i class="fa-sharp-duotone fa-light fa-user"></i>
+<i class="fa-sharp-duotone fa-thin fa-user"></i>
+
+<!-- a Brands icon -->
+<i class="fa-brands fa-font-awesome"></i>
+<i class="fa-solid fa-bars"></i>
+
+    </body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-group w-25 m-4">
+        <input type="text" class="form-control w-25 ">
+        <button class="btn btn-primary fs-1" id="createRow">+</button>
+    </div>
+    <div class="container  m-4" id="pushItems">
+
+    </div>
+    <script>
+        let parent=document.createElement("div");
+        parent.className="input-group w-25 m-4";
+        let element = document.createElement("input");
+        let container = document.getElementById("pushItems");
+        element.className="form-control w-25";
+        element.type = "text";
+        let btn=document.createElement("button");
+        btn.textContent="+";
+        btn.className="btn btn-primary fs-1";
+        parent.appendChild(element);
+        parent.appendChild(btn);
+        container.appendChild(parent);
+    </script>
+</body>
+
+</html>

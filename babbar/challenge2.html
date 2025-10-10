@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Document</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            background-color: #8e86f7;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            color: white;
+            border-radius: 4%;
+        }
+
+        button {
+            width: 50%;
+            border-radius: 5px;
+
+            display: flex;
+            gap: 15px;
+            border: none;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container>button:first-child {
+            background-color: rgba(55, 51, 32, 0.856);
+            color: white;
+        }
+
+        .container>button:nth-child(2) {
+            background-color: rgb(234, 210, 90);
+        }
+
+        .container>button:nth-child(3) {
+            background-color: rgba(19, 41, 243, 0.738);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button type="button">
+            <img src="./images/micro.png" height="30px" alt="">
+            Signin With Microsoft
+        </button>
+        <button type="button">
+            <img src="./images/amazon.png" height="30px" alt="">
+            Login With Amazon
+        </button>
+        <button type="button">
+            <img src="./images/facbook.png" height="30px" alt="">
+            Login With Facbook
+        </button>
+        <button type="button">
+            <img src="./images/slack.png" height="30px" alt="">
+            Signin with slack
+        </button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="">Age</label>
+    <input type="number" name="" id="ageInput">
+    <button onclick="checkAge()">Check</button>
+    <p id="result">Age Will displayed Here </p>
+    <p id="printAge"></p>
+
+    <label for="">select number </label>
+    <input type="number" name="" id="checkNumber">
+    <button type="submit" onclick="checkNum()">Check</button>
+    <h2 id="result2">Result will be displayed here</h2>
+    <h2 id="printNumber">Number wiill displayed here</h2>
+    <script>
+
+        let checkAge = () => {
+            let age = document.getElementById("ageInput").value;
+
+            if (age <= 18) {
+                document.getElementById("result").innerText = "Child";
+            }
+            else {
+                document.getElementById("result").innerText = "adult";
+
+            }
+            document.getElementById("printAge").innerText = "Your Age Is  " + age;
+
+        }
+
+
+        let checkNum = () => {
+            let num = document.getElementById("checkNumber").value;
+            if (num < 0) {
+                document.getElementById("result2").innerText = "this is negative number";
+            }
+            else {
+                document.getElementById("result2").innerText = "This is Positive number";
+            }
+            document.getElementById("printNumber").innerText = "Entered Number is " + num;
+        }
+
+    </script>
+
+    <!-- <input type="number" id="ageInput" placeholder="Enter your age">
+    <button onclick="checkAge()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function checkAge() {
+            let age = document.getElementById("ageInput").value;
+
+            if (age < 18) {
+                document.getElementById("result").innerText = "Child";
+            } else {
+                document.getElementById("result").innerText = "Adult";
+            }
+        }
+    </script> -->
+
+</body>
+
+</html>

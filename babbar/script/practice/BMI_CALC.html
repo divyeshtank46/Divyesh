@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --accent: #FF6584;
+            --light: #F5F7FF;
+            --dark: #2D3748;
+            --success: #4ADE80;
+            --warning: #FBBF24;
+            --danger: #F87171;
+            --gradient: linear-gradient(135deg, #6C63FF, #4A44C6, #FF6584);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+            --glow: 0 0 20px rgba(108, 99, 255, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #6C63FF, #4A44C6, #FF6584, #FF9A8B);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: var(--dark);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .calculator-container {
+            width: 90%;
+            max-width: 450px;
+            perspective: 1000px;
+        }
+
+        .calculator-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transform-style: preserve-3d;
+            animation: cardFloat 6s ease-in-out infinite;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 8s infinite linear;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0) rotateX(0); }
+            50% { transform: translateY(-10px) rotateX(5deg); }
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .calculator-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 10px rgba(108, 99, 255, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(108, 99, 255, 0.8); }
+        }
+
+        .calculator-subtitle {
+            color: var(--dark);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .input-highlight {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .input-field:focus + .input-highlight {
+            width: 100%;
+        }
+
+        .gender-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gender-option {
+            flex: 1;
+            text-align: center;
+        }
+
+        .gender-btn {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 16px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gender-btn i {
+            font-size: 1.5rem;
+        }
+
+        .gender-btn.active {
+            border-color: var(--primary);
+            background: rgba(108, 99, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        .calculate-btn:active {
+            transform: translateY(0);
+        }
+
+        .calculate-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .calculate-btn:hover::before {
+            left: 100%;
+        }
+
+        .result-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .result-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8) translateY(50px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-modal.active .result-card {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .bmi-value {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bmi-category {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .underweight { background: linear-gradient(135deg, #3B82F6, #1D4ED8); color: white; }
+        .normal { background: linear-gradient(135deg, #10B981, #047857); color: white; }
+        .overweight { background: linear-gradient(135deg, #F59E0B, #D97706); color: white; }
+        .obese { background: linear-gradient(135deg, #EF4444, #DC2626); color: white; }
+
+        .bmi-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .scale-marker {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #E2E8F0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .scale-marker.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .scale-label {
+            position: absolute;
+            top: 20px;
+            font-size: 0.8rem;
+            color: var(--dark);
+            transform: translateX(-50%);
+        }
+
+        .scale-progress {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 1;
+            transition: width 1.5s ease;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: var(--primary);
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .bounce {
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+            z-index: 1000;
+            animation: confettiFall 5s linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .health-tips {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .health-tips h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        @media (max-width: 576px) {
+            .calculator-card {
+                padding: 1.5rem;
+            }
+            
+            .calculator-title {
+                font-size: 2rem;
+            }
+            
+            .bmi-value {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 10%; animation-duration: 25s;"></div>
+        <div class="floating-element" style="width: 120px; height: 120px; top: 70%; left: 80%; animation-duration: 30s;"></div>
+        <div class="floating-element" style="width: 60px; height: 60px; top: 30%; left: 85%; animation-duration: 20s;"></div>
+        <div class="floating-element" style="width: 100px; height: 100px; top: 80%; left: 15%; animation-duration: 35s;"></div>
+    </div>
+
+    <!-- BMI Calculator -->
+    <div class="calculator-container">
+        <div class="calculator-card">
+            <div class="calculator-header">
+                <h1 class="calculator-title">BMI CALCULATOR</h1>
+                <p class="calculator-subtitle">Check your body mass index</p>
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">
+                    <i class="fas fa-venus-mars"></i> Gender
+                </label>
+                <div class="gender-selector">
+                    <div class="gender-option">
+                        <div class="gender-btn active" data-gender="male">
+                            <i class="fas fa-mars"></i>
+                            <span>Male</span>
+                        </div>
+                    </div>
+                    <div class="gender-option">
+                        <div class="gender-btn" data-gender="female">
+                            <i class="fas fa-venus"></i>
+                            <span>Female</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">
+                    <i class="fas fa-ruler-vertical"></i> Height (cm)
+                </label>
+                <input type="number" class="input-field" id="heightInput" placeholder="Enter your height">
+                <div class="input-highlight"></div>
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">
+                    <i class="fas fa-weight"></i> Weight (kg)
+                </label>
+                <input type="number" class="input-field" id="weightInput" placeholder="Enter your weight">
+                <div class="input-highlight"></div>
+            </div>
+            
+            <button class="calculate-btn pulse" id="calculateBtn">
+                <i class="fas fa-calculator"></i> Calculate BMI
+            </button>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-card">
+            <button class="close-btn" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2>Your BMI Result</h2>
+            <div class="bmi-value" id="bmiValue">00.0</div>
+            <div class="bmi-category" id="bmiCategory">-</div>
+            
+            <div class="bmi-scale">
+                <div class="scale-marker" id="underweightMarker"></div>
+                <div class="scale-marker" id="normalMarker"></div>
+                <div class="scale-marker" id="overweightMarker"></div>
+                <div class="scale-marker" id="obeseMarker"></div>
+                <div class="scale-progress" id="scaleProgress"></div>
+                
+                <div class="scale-label" style="left: 0%;">Underweight</div>
+                <div class="scale-label" style="left: 33.3%;">Normal</div>
+                <div class="scale-label" style="left: 66.6%;">Overweight</div>
+                <div class="scale-label" style="left: 100%;">Obese</div>
+            </div>
+            
+            <div class="health-tips" id="healthTips">
+                <h4><i class="fas fa-lightbulb"></i> Health Tips</h4>
+                <p id="tipsText">Maintain a balanced diet and regular exercise for optimal health.</p>
+            </div>
+            
+            <button class="calculate-btn" id="recalculateBtn" style="margin-top: 1.5rem;">
+                <i class="fas fa-redo"></i> Calculate Again
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const heightInput = document.getElementById('heightInput');
+            const weightInput = document.getElementById('weightInput');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resultModal = document.getElementById('resultModal');
+            const closeModal = document.getElementById('closeModal');
+            const bmiValue = document.getElementById('bmiValue');
+            const bmiCategory = document.getElementById('bmiCategory');
+            const scaleProgress = document.getElementById('scaleProgress');
+            const healthTips = document.getElementById('healthTips');
+            const tipsText = document.getElementById('tipsText');
+            const recalculateBtn = document.getElementById('recalculateBtn');
+            const genderBtns = document.querySelectorAll('.gender-btn');
+            
+            // Markers for BMI scale
+            const underweightMarker = document.getElementById('underweightMarker');
+            const normalMarker = document.getElementById('normalMarker');
+            const overweightMarker = document.getElementById('overweightMarker');
+            const obeseMarker = document.getElementById('obeseMarker');
+            
+            // Gender selection
+            let selectedGender = 'male';
+            
+            genderBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    genderBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedGender = this.getAttribute('data-gender');
+                    
+                    // Add bounce animation
+                    this.classList.add('bounce');
+                    setTimeout(() => {
+                        this.classList.remove('bounce');
+                    }, 500);
+                });
+            });
+            
+            // Calculate BMI
+            calculateBtn.addEventListener('click', function() {
+                const height = parseFloat(heightInput.value);
+                const weight = parseFloat(weightInput.value);
+                
+                if (!height || !weight || height <= 0 || weight <= 0) {
+                    // Add shake animation to inputs
+                    heightInput.style.animation = 'shake 0.5s';
+                    weightInput.style.animation = 'shake 0.5s';
+                    
+                    setTimeout(() => {
+                        heightInput.style.animation = '';
+                        weightInput.style.animation = '';
+                    }, 500);
+                    
+                    alert('Please enter valid height and weight values.');
+                    return;
+                }
+                
+                // Calculate BMI
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                const roundedBMI = bmi.toFixed(1);
+                
+                // Display result with animation
+                showResult(roundedBMI);
+            });
+            
+            // Show result modal
+            function showResult(bmi) {
+                // Set BMI value with counting animation
+                animateValue(bmiValue, 0, parseFloat(bmi), 1500);
+                
+                // Determine BMI category
+                let category = '';
+                let categoryClass = '';
+                let progressWidth = 0;
+                let tips = '';
+                
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                    categoryClass = 'underweight';
+                    progressWidth = (bmi / 18.5) * 33.3;
+                    tips = 'Consider increasing calorie intake with nutrient-rich foods. Include protein, healthy fats, and complex carbohydrates in your diet.';
+                    activateMarker(underweightMarker);
+                } else if (bmi >= 18.5 && bmi < 25) {
+                    category = 'Normal Weight';
+                    categoryClass = 'normal';
+                    progressWidth = 33.3 + ((bmi - 18.5) / (25 - 18.5)) * 33.3;
+                    tips = 'Great job! Maintain your healthy weight with balanced nutrition and regular physical activity.';
+                    activateMarker(normalMarker);
+                    createConfetti();
+                } else if (bmi >= 25 && bmi < 30) {
+                    category = 'Overweight';
+                    categoryClass = 'overweight';
+                    progressWidth = 66.6 + ((bmi - 25) / (30 - 25)) * 33.3;
+                    tips = 'Consider increasing physical activity and reducing calorie intake. Focus on whole foods and limit processed items.';
+                    activateMarker(overweightMarker);
+                } else {
+                    category = 'Obese';
+                    categoryClass = 'obese';
+                    progressWidth = 100;
+                    tips = 'Consult with a healthcare provider for a personalized weight management plan. Focus on sustainable lifestyle changes.';
+                    activateMarker(obeseMarker);
+                }
+                
+                // Update category with animation
+                setTimeout(() => {
+                    bmiCategory.textContent = category;
+                    bmiCategory.className = `bmi-category ${categoryClass} bounce`;
+                }, 1600);
+                
+                // Update progress bar
+                setTimeout(() => {
+                    scaleProgress.style.width = `${progressWidth}%`;
+                }, 1800);
+                
+                // Update health tips
+                tipsText.textContent = tips;
+                
+                // Show modal
+                setTimeout(() => {
+                    resultModal.classList.add('active');
+                }, 500);
+            }
+            
+            // Animate value counting
+            function animateValue(element, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    element.innerHTML = (progress * (end - start) + start).toFixed(1);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+            
+            // Activate scale marker
+            function activateMarker(marker) {
+                // Reset all markers
+                [underweightMarker, normalMarker, overweightMarker, obeseMarker].forEach(m => {
+                    m.classList.remove('active');
+                });
+                
+                // Activate selected marker with delay
+                setTimeout(() => {
+                    marker.classList.add('active');
+                }, 2000);
+            }
+            
+            // Create confetti effect
+            function createConfetti() {
+                const colors = ['#6C63FF', '#4A44C6', '#FF6584', '#FF9A8B', '#4ADE80', '#FBBF24'];
+                
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = Math.random() * 10 + 5 + 'px';
+                    confetti.style.animationDelay = Math.random() * 5 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }
+            }
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                resultModal.classList.remove('active');
+                resetForm();
+            });
+            
+            // Recalculate button
+            recalculateBtn.addEventListener('click', function() {
+                resultModal.classList.remove('active');
+                resetForm();
+            });
+            
+            // Reset form
+            function resetForm() {
+                heightInput.value = '';
+                weightInput.value = '';
+                
+                // Reset scale
+                scaleProgress.style.width = '0%';
+                
+                // Reset markers
+                [underweightMarker, normalMarker, overweightMarker, obeseMarker].forEach(m => {
+                    m.classList.remove('active');
+                });
+                
+                // Focus on height input
+                setTimeout(() => {
+                    heightInput.focus();
+                }, 500);
+            }
+            
+            // Add shake animation to CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

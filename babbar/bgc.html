@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 80px;
+            width: 80px;
+            margin-top: 20px;
+        }
+
+        #box:nth-child(1) {
+            background-color: #000000;
+        }
+
+        #box:nth-child(2) {
+            background-image: linear-gradient(red, yellow, blue);
+        }
+
+        #box:nth-child(3) {
+            background-image: linear-gradient(to right, red, blue);
+        }
+
+        #box:nth-child(4) {
+            background-image: linear-gradient(to bottom right, red, blue);
+        }
+
+        #box:nth-child(5) {
+            background-image: linear-gradient(180deg, red, blue);
+        }
+
+        #box:nth-child(6) {
+            background-image: linear-gradient(to right, rgba(255, 0, 0, 0),
+                    rgba(255, 0, 0, 1));
+        }
+
+        #box:nth-child(7) {
+            background-image: radial-gradient(red, green, blue);
+        }
+
+        #box:nth-child(8) {
+            background-image: radial-gradient(red 5%, green 15%, blue 60%);
+        }
+
+        #box:nth-child(9) {
+            background-image: radial-gradient(circle, red, yellow, green);
+        }
+
+        #box:nth-child(10) {
+            background-image: conic-gradient(red, yellow, green, blue, black);
+        }
+
+        #box:nth-child(11) {
+            background-image: conic-gradient(red 45deg, yellow 90deg, green 210deg)
+        }
+
+        #box:nth-child(12) {
+            background-image: conic-gradient(from 90deg, red, yellow, green);
+        }
+
+        #box:nth-child(13) {
+            background-image: conic-gradient(at 60% 45%, red, yellow, green);
+        }
+
+        #box:nth-child(14) {
+            background-image: conic-gradient(from 90deg at 60% 45%, red, yellow,
+                    green);
+        }
+
+        #box:nth-child(15) {
+            background-image: conic-gradient (red 0deg, red 90deg, yellow 90deg,
+                    yellow 180deg, green 180deg);
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            gap:10px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box" class="box1"></div>
+        <div id="box" class="box2"></div>
+        <div id="box" class="box3"></div>
+        <div id="box" class="box4"></div>
+        <div id="box" class="box5"></div>
+        <div id="box" class="box6"></div>
+        <div id="box" class="box7"></div>
+        <div id="box" class="box8"></div>
+        <div id="box" class="box9"></div>
+        <div id="box" class="box10"></div>
+        <div id="box" class="box11"></div>
+        <div id="box" class="box12"></div>
+        <div id="box" class="box13"></div>
+        <div id="box" class="box14"></div>
+        <div id="box" class="box15"></div>
+    </div>
+</body>
+
+</html>

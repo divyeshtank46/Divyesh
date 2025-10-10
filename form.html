@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="boootstrap.css">
+    <title>Document</title>
+    <style>
+        form {
+            height: 60%;
+            width: 25%;
+            
+            /* margin-right: 30%;
+            margin-left: 40%;
+            margin-top: 25%; */
+            border: solid transparent 2px;
+            /* border-color: black; */
+            box-shadow: 0 5px 5px 5px rgb(245, 122, 122);
+            padding: 23px;
+            text-shadow: 1px 1px 2px rgb(255, 251, 251), 0 0 25px blue, 0 0 5px darkblue;
+        }
+
+        body {
+            justify-content: center;
+            align-items: center;
+            background-image: url('./image/2.jpg');
+            background-repeat: no-repeat;
+        }
+
+        div {
+            height: 60vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="">
+            <h2>Login Form</h2>
+            <label for="name" class="form-label">Email</label>
+            <input type="email" name="name" class="form-control" id="name">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control">
+            
+            <input type="button" value="Login" class="btn btn-outline-danger mt-3" id="btn">
+        </form>
+    </div>
+</body>
+
+</html>

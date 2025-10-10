@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div{
+            background-color: green;
+        }
+    </style>
+</head>
+<div id="element">
+
+</div>
+
+<body>
+    <script>
+
+        let Numbers = [1, 2, 3, 4, 5];
+        style = () => {
+            let num="";
+            Numbers.map((val) => {
+                
+                num+=`<div class="div">${val}</div>`;
+                
+            });
+                document.getElementById("element").innerHTML=num;
+        }
+
+
+        style();
+    </script>
+</body>
+
+</html>

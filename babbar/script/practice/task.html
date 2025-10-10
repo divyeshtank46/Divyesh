@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funny Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #ffe066;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    .bouncing-smiley {
+      font-size: 5rem;
+      position: absolute;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-150px) rotate(20deg); }
+      50% { transform: translateY(0) rotate(-20deg); }
+      75% { transform: translateY(-100px) rotate(10deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bouncing-smiley">😜</div>
+</body>
+</html>

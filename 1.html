@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer</title>
+    <style>
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #0066cc;
+        }
+
+        .footer-logo {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-logo">
+            <h2>—S STUDYSYNC</h2>
+            <p>Seamless Learning for better future</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Products</h3>
+            <ul>
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">Solutions</a></li>
+                <li><a href="#">Pricing</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Customers</h3>
+            <ul>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">Investors relations</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Place</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">contact</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Chat</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#">Term of service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Settings</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

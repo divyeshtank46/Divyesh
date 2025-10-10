@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .container {
+            display: grid;
+            padding: 20px;
+            height: 100%;
+            width: 100%;
+            background-color: #c4a6a6;
+            border: solid black 2px;
+            grid-template-areas:
+                "header header header"
+                "sidebar content1 content1"
+                "sidebar content2 content3"
+                "footer footer footer"
+            ;
+            text-align: center;
+            /* justify-content: center; */
+        }
+
+        .item {
+            padding: 20px;
+            border: solid rebeccapurple 2px;
+        }
+
+        #header {
+            grid-area: header;
+        }
+
+        #sidebar {
+            grid-area: sidebar;
+        }
+
+        #content1 {
+            grid-area: content1;
+        }
+
+        #content2 {
+            grid-area: content2;
+        }
+
+        #content3 {
+            grid-area: content3;
+        }
+
+        #footer {
+            grid-area: footer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="header" class="item header">HEADER</div>
+        <div id="sidebar" class="item sidebar">SIDEBAR</div>
+        <div id="content1" class="item content1">CONTENT1</div>
+        <div id="content2" class="item">CONTENT2</div>
+        <div id="content3" class="item">CONTENT3</div>
+        <div id="footer" class="item footer">FOOTER</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise to Sunset Animation</title>
+    <style>
+      
+
+        .gm {
+            background: linear-gradient(to right, rgb(191, 91, 10), rgb(255, 51, 0));
+            /* -webkit-background-clip: text; */
+            background-clip: text;
+            color: transparent;
+        }
+
+        body {
+            height: 95vh;
+            background-color: black;
+            color: rgb(255, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 4rem;
+            /* height: 100vh; */
+            background: linear-gradient(to top, #017efb, #012ef7);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="sun"></div>
+    <div class="container">
+        <p class="gm" id="gm">Good Morning </p> 
+        <p class="time" id="time">00 : 00 : 00</p>
+    </div>
+    <script>
+        setInterval(() => {
+            let date = new Date();
+            let hours = date.getHours();
+            if (hours < 12) {
+                document.getElementById("gm").innerText = "Good Morning 🌞";
+            }
+            else if (hours < 18) {
+                document.getElementById("gm").innerHTML = "Good Afternoon 🌤️"
+            }
+            else {
+                document.getElementById("gm").innerHTML = "Good Evening 🌙"
+            }
+            // document.write();
+            document.getElementById("time").innerText = date.toLocaleTimeString('en-GB');
+        }, 0);
+
+    </script>
+</body>
+
+</html>
