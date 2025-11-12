@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-box {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+        }
+
+        .register-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .register-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .register-box input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .register-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .register-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .register-box p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .register-box a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .register-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-box">
+        <h2>User Registration</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required id="userId">
+            <input type="password" placeholder="Password" required id="userPass">
+            <button type="button" onclick="register()">Register</button>
+            <p>Already have an account? <a href="login1.html">Login</a></p>
+        </form>
+    </div>
+    <script>
+        let register = () => {
+            let userId = document.getElementById("userId").value;
+            let userPass = document.getElementById("userPass").value;
+            localStorage.setItem("userName", userId);
+            localStorage.setItem("password", userPass);
+            setTimeout(() => {
+                window.location.href = "login1.html";
+            }, 1500);
+        };
+    </script>
+</body>
+
+</html>

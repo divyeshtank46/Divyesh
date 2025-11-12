@@ -1,49 +1,46 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Login System Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CRUD - Names Only</title>
 </head>
-
 <body>
-    <h2>Register</h2>
-    <input id="regUser" placeholder="Username"><br>
-    <input id="regPass" type="password" placeholder="Password"><br>
-    <button onclick="register()">Register</button>
+    <h1>Name Manager</h1>
+    
+    <div>
+        <h2 id="formTitle">Add Name</h2>
+        <form onsubmit="saveName(); return false;">
+            <input type="hidden" id="nameId">
+            
+            <div>
+                <label>Name:</label>
+                <input type="text" id="name" >
+            </div>
+            
+            <div>
+                <button type="submit" id="submitBtn">Add Name</button>
+                <button type="button" onclick="resetForm()" id="cancelBtn" style="display:none;">Cancel</button>
+            </div>
+        </form>
+    </div>
 
-    <h2>Login</h2>
-    <input id="logUser" placeholder="Username"><br>
-    <input id="logPass" type="password" placeholder="Password"><br>
-    <button onclick="login()">Login</button>
+    <div>
+        <h2>Name List</h2>
+        <table border="1" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="nameTableBody">
+            </tbody>
+        </table>
+        <div id="noDataMessage">No names added yet.</div>
+    </div>
 
-    <p id="msg"></p>
-
-    <script>
-        function register() {
-            const user = document.getElementById('regUser').value;
-            const pass = document.getElementById('regPass').value;
-
-            // store in localStorage
-            localStorage.setItem('username', user);
-            localStorage.setItem('password', pass);
-
-            document.getElementById('msg').innerText = "Registration successful!";
-        }
-
-        function login() {
-            const user = document.getElementById('logUser').value;
-            const pass = document.getElementById('logPass').value;
-
-            const savedUser = localStorage.getItem('username');
-            const savedPass = localStorage.getItem('password');
-
-            if (user === savedUser && pass === savedPass) {
-                document.getElementById('msg').innerText = "Login successful!";
-            } else {
-                document.getElementById('msg').innerText = "Invalid credentials!";
-            }
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
-
 </html>

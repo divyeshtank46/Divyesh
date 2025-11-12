@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-box input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-box p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .login-box a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form>
+            <input type="email" placeholder="Email" required id="logId">
+            <input type="password" placeholder="Password" required id="logPass">
+            <button type="button" onclick="Login()">Login</button>
+            <p>Don’t have an account? <a href="registerrr.html">Register</a></p>
+        </form>
+    </div>
+    <script>
+let adminId ="admin@gmail.com";
+let adminPass="666444";
+        let Login = () => {
+            let logId = document.getElementById("logId").value;
+            let logPass = document.getElementById("logPass").value;
+            let savedUser = localStorage.getItem("userName");
+            let savedPass = localStorage.getItem("password");
+            if (logId == savedUser && logPass == savedPass) {
+                // alert("Login successfull");
+                window.location.href = "home1.html";
+                }
+                else if(logId==adminId && logPass == adminPass){
+                    alert ("welcome admin");
+                    window.location.href="admin1.html";
+                }
+             else {
+                alert("invalid credintials");
+            }
+        };
+    </script>
+</body>
+
+</html>

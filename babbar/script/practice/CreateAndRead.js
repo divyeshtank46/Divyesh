@@ -22,6 +22,7 @@ function viewRecord() {
     table += `<tr>
         <td>${val.userId}</td> 
         <td>${val.U_task}</td>
+        <td><input type="button" class ="btn btn-outline-danger" value="Delete"> <input type="button" class ="btn btn-outline-success" value="Update"</td>
     </tr>`;
   });
   document.getElementById("ViewRecords").innerHTML = table;
