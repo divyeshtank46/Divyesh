@@ -1,36 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .div{
-            background-color: green;
-        }
-    </style>
+    <title>Login System Demo</title>
 </head>
-<div id="element">
-
-</div>
 
 <body>
-    <script>
+    <h2>Register</h2>
+    <input id="regUser" placeholder="Username"><br>
+    <input id="regPass" type="password" placeholder="Password"><br>
+    <button onclick="register()">Register</button>
 
-        let Numbers = [1, 2, 3, 4, 5];
-        style = () => {
-            let num="";
-            Numbers.map((val) => {
-                
-                num+=`<div class="div">${val}</div>`;
-                
-            });
-                document.getElementById("element").innerHTML=num;
+    <h2>Login</h2>
+    <input id="logUser" placeholder="Username"><br>
+    <input id="logPass" type="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+
+    <p id="msg"></p>
+
+    <script>
+        function register() {
+            const user = document.getElementById('regUser').value;
+            const pass = document.getElementById('regPass').value;
+
+            // store in localStorage
+            localStorage.setItem('username', user);
+            localStorage.setItem('password', pass);
+
+            document.getElementById('msg').innerText = "Registration successful!";
         }
 
+        function login() {
+            const user = document.getElementById('logUser').value;
+            const pass = document.getElementById('logPass').value;
 
-        style();
+            const savedUser = localStorage.getItem('username');
+            const savedPass = localStorage.getItem('password');
+
+            if (user === savedUser && pass === savedPass) {
+                document.getElementById('msg').innerText = "Login successful!";
+            } else {
+                document.getElementById('msg').innerText = "Invalid credentials!";
+            }
+        }
     </script>
 </body>
 
