@@ -1,0 +1,236 @@
+
+        ul {
+            list-style: none;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: 20% 1fr;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .category {
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 0 15px 15px 0;
+            border: none !important;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+
+        .category h2 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            font-size: 1.8rem;
+        }
+
+        .category ul {
+            gap: 15px;
+        }
+
+        .category ul li {
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        .category ul li:hover {
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            transform: translateX(5px);
+        }
+
+        .category ul li.active {
+            background: #3498db;
+            color: white;
+            border-left: 4px solid #2980b9;
+        }
+
+        .product {
+            padding: 20px;
+        }
+
+        .product h1 {
+            color: #2c3e50;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .product h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
+
+        .cart-products {
+            width: 100%;
+            display: grid;
+            gap: 25px;
+            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .cart-items {
+            border: none;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            background: #fff;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cart-items::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+        }
+
+        .cart-items:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .cart-img {
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cart-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .cart-items:hover .cart-img img {
+            transform: scale(1.05);
+        }
+
+        .cart-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+            pointer-events: none;
+        }
+
+        .cart-content h3 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .cart-content p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .cart-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .cart-rating {
+            color: #f39c12;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cart-button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .cart-button:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Custom scrollbar */
+        .category::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .category::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .category::-webkit-scrollbar-thumb {
+            background: #3498db;
+            border-radius: 10px;
+        }
+
+        .category::-webkit-scrollbar-thumb:hover {
+            background: #2980b9;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .category {
+                height: auto;
+                position: relative;
+                border-radius: 0;
+            }
+            
+            .cart-products {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 10px;
+            }
+        }
+        .serchbtn{
+            width: 13%;
+        }
+    

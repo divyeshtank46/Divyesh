@@ -2,5 +2,8 @@ try{
     console.log(divyesh);
 }
 catch(err){
-    throw new Error("declare  variable First");
+    console.log("err:=>",err);
+}
+finally{
+    console.log("donee");
 }
